@@ -6,5 +6,6 @@
             "Snorkelweb\\Querybuilder\\": "Src/"
         }
     },
+    "license": "MIT",
     "require": {}
 }
