@@ -1,0 +1,8 @@
+{
+    "name": "snorkelweb/querybuilder",
+    "description": "A Small Query Buildering Allowing users to Access and control databases",
+    "type": "library",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "require": {}
+}
