@@ -1,5 +1,5 @@
 <?php
-namespace SnorkelWeb\QueryBuilder\Traits;
+namespace App\Core\QueryBuilder\Traits;
 
 trait GroupBy
 {

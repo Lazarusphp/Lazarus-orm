@@ -1,10 +1,10 @@
 <?php
-namespace SnorkelWeb\QueryBuilder;
+namespace App\Core\QueryBuilder;
 
-use SnorkelWeb\Database\Connection;
-use SnorkelWeb\QueryBuilder\Traits\From;
-use SnorkelWeb\QueryBuilder\Traits\Params;
-use SnorkelWeb\QueryBuilder\Traits\Where;
+use App\Core\Database\Connection;
+use App\Core\QueryBuilder\Traits\From;
+use App\Core\QueryBuilder\Traits\Params;
+use App\Core\QueryBuilder\Traits\Where;
 
 class Delete extends Connection
 {

@@ -1,15 +1,15 @@
 <?php
-namespace SnorkelWeb\QueryBuilder;
-use SnorkelWeb\Database\Connection;
+namespace App\Core\QueryBuilder;
+use App\Core\Database\Connection;
 // Traits
-use SnorkelWeb\QueryBuilder\Traits\Orderby;
-use SnorkelWeb\QueryBuilder\Traits\From;
-use SnorkelWeb\QueryBuilder\Traits\Where;
-use SnorkelWeb\QueryBuilder\Traits\GroupBy;
-use SnorkelWeb\QueryBuilder\Traits\Having;
-use SnorkelWeb\QueryBuilder\Traits\Joins;
-use SnorkelWeb\QueryBuilder\Traits\Limit;
-use SnorkelWeb\QueryBuilder\Traits\Params;
+use App\Core\QueryBuilder\Traits\Orderby;
+use App\Core\QueryBuilder\Traits\From;
+use App\Core\QueryBuilder\Traits\Where;
+use App\Core\QueryBuilder\Traits\GroupBy;
+use App\Core\QueryBuilder\Traits\Having;
+use App\Core\QueryBuilder\Traits\Joins;
+use App\Core\QueryBuilder\Traits\Limit;
+use App\Core\QueryBuilder\Traits\Params;
 
 class Select extends Connection
 {

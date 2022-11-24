@@ -1,8 +1,8 @@
 <?php
-namespace SnorkelWeb\QueryBuilder;
+namespace App\Core\QueryBuilder;
 
-use SnorkelWeb\Database\Connection;
-use SnorkelWeb\QueryBuilder\Traits\Params;
+use App\Core\Database\Connection;
+use App\Core\QueryBuilder\Traits\Params;
 
 class Insert extends Connection
 {
