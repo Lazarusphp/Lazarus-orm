@@ -1,7 +1,7 @@
 <?php
 namespace SnorkelWeb\QueryBuilder;
 
-use App\Core\Database\Connection;
+use SnorkelWeb\DBManager\Connection;
 use SnorkelWeb\QueryBuilder\Traits\From;
 use SnorkelWeb\QueryBuilder\Traits\Params;
 use SnorkelWeb\QueryBuilder\Traits\Where;

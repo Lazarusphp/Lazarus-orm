@@ -1,7 +1,7 @@
 <?php
 namespace SnorkelWeb\QueryBuilder;
 
-use App\Core\Database\Connection;
+use SnorkelWeb\DBManager\Connection;
 
 class Update extends Connection
 {
