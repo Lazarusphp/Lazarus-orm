@@ -1,6 +1,6 @@
 <?php
 namespace SnorkelWeb\QueryBuilder;
-use App\Core\Database\Connection;
+use SnorkelWeb\DBManager\Connection;
 // Traits
 use SnorkelWeb\QueryBuilder\Traits\Orderby;
 use SnorkelWeb\QueryBuilder\Traits\Where;
@@ -53,7 +53,7 @@ class Select extends Connection
 
     public function prepare($sql)
     {
-       return $this->pdo->prepare($sql);
+       return $this->connect()->prepare($sql);
     }
 
 
