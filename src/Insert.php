@@ -47,7 +47,7 @@ class Insert extends Connection
 
     public function prepare($sql)
     {
-       return $this->pdo->prepare($sql);
+       return $this->connect()->prepare($sql);
     }
 
 
@@ -68,7 +68,7 @@ class Insert extends Connection
 
     public function LastId()
     {
-        return $this->pdo->lastInsertId();
+        return $this->connect()->lastInsertId();
     }
 
 }

@@ -29,7 +29,7 @@ class Delete extends Connection
 
     public function prepare($sql)
     {
-       return $this->pdo->prepare($sql);
+       return $this->connect()->prepare($sql);
     }
 
 
