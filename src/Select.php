@@ -1,5 +1,8 @@
 <?php
 namespace SnorkelWeb\QueryBuilder;
+
+use Closure;
+use Exception;
 use SnorkelWeb\DBManager\Connection;
 // Traits
 use SnorkelWeb\QueryBuilder\Traits\Orderby;
@@ -53,25 +56,41 @@ class Select extends Connection
 
     public function prepare($sql)
     {
-       return $this->connect()->prepare($sql);
+       return $this->connection->prepare($sql);
     }
 
 
     public function save()
     {
-        // QueryBuilder LOader goes here
-        $this->sqlloader();
-        // Start Prepare query
-        $this->stmt = $this->prepare($this->sql);
-    // Param Binder
-       $this->parambinder();
-        // Execute the final Script;
-        // echo $this->toSql();
+        // instantite new connection
+        try
+        {
+            $this->connection->beginTransaction();
+     
+            $this->sqlloader();
+            // Start Prepare query
+            $this->stmt = $this->prepare($this->sql);
+        // Param Binder
+           $this->parambinder();
+            // Execute the final Script;
+            // echo $this->toSql();
+           
+             $this->stmt->execute(); 
+            $this->connection->commit();
+            return $this;
+        }
+        catch(Exception $e)
+        {
+            $this->connection->rollBack();
+            
+        }
+    
+      
        
-         $this->stmt->execute();
-
-         return $this;
-    }
+        
+     
+    
+}
 
 
     public function AsSql($sql)
