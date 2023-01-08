@@ -1,4 +1,5 @@
 <?php
+
 namespace SnorkelWeb\QueryBuilder;
 
 use Closure;
@@ -18,24 +19,27 @@ class Select extends Connection
 {
     private $sql;
     private $stmt;
-    public $RowCount;
-
-        use From;
-        use Orderby;
-        use Where;
-        use GroupBy;
-        use Joins;
-        use Limit;
-        use Having;
-        use Params;
+    private $dbh;
+    private $fetch;
     
-        public function select($values)
-        {
-            $this->sql = "SELECT " . $values. " ";
-            return $this;
-        }
 
-        private function sqlloader()
+    use From;
+    use Orderby;
+    use Where;
+    use GroupBy;
+    use Joins;
+    use Limit;
+    use Having;
+    use Params;
+
+
+    public function select($values)
+    {
+        $this->sql = "SELECT " . $values . " ";
+        return $this;
+    }
+
+    private function sqlloader()
     {
 
         // Joins
@@ -54,43 +58,14 @@ class Select extends Connection
         $this->sql .= $this->FetchLimit();
     }
 
-    public function prepare($sql)
-    {
-       return $this->connection->prepare($sql);
-    }
-
-
     public function save()
     {
-        // instantite new connection
-        try
-        {
-            $this->connection->beginTransaction();
-     
-            $this->sqlloader();
-            // Start Prepare query
-            $this->stmt = $this->prepare($this->sql);
-        // Param Binder
-           $this->parambinder();
-            // Execute the final Script;
-            // echo $this->toSql();
-           
-             $this->stmt->execute(); 
-            $this->connection->commit();
-            return $this;
-        }
-        catch(Exception $e)
-        {
-            $this->connection->rollBack();
-            
-        }
-    
-      
-       
-        
-     
-    
-}
+        $params = array_combine($this->paramkey, $this->paramvalue);
+        $this->sqlloader();
+        // Start Prepare query
+        $this->stmt = $this->GenerateQuery($this->sql, $params);
+        return $this;
+    }
 
 
     public function AsSql($sql)
@@ -99,16 +74,14 @@ class Select extends Connection
         return $this;
     }
 
-    public function GetRowCount()
+    public function get()
     {
-        return $this->stmt->rowCount();
+        return $this->Fetch_All();
     }
 
-     public function first()
+    public function first()
     {
-             $data = $this->stmt->fetch(); 
-             return $data;
-      
+        return $this->Fetch();
     }
 
     public function tosql()
@@ -121,11 +94,5 @@ class Select extends Connection
         return json_encode($value);
     }
 
-    public function get()
-    {
-    
-            return $this->stmt->fetchall(); 
 
-    }
-
-    }
+}

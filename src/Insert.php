@@ -9,6 +9,7 @@ class Insert extends Connection
   
     private $sql;
     private $stmt;
+    public $lastid;
 
     // traits
 
@@ -44,21 +45,17 @@ class Insert extends Connection
           $this->sql .= " VALUES($values)";
           return $this;
     }
-
-    public function prepare($sql)
-    {
-       return $this->connect()->prepare($sql);
-    }
+   
 
 
     public function save()
     {
-        $this->stmt = $this->prepare($this->sql);
-    // Param Binder
-       $this->parambinder();
-        // Execute the final Script;
-         $this->stmt->execute();
-        //  return $this;
+        $params = array_combine($this->paramkey,$this->paramvalue);
+        // Start Prepare query
+        $this->stmt = $this->GenerateQuery($this->sql,$params);
+        // Retrieve id
+        return $this;
+
     }
 
     public function tojson($value)
@@ -66,9 +63,5 @@ class Insert extends Connection
         return json_encode($value);
     }
 
-    public function LastId()
-    {
-        return $this->connect()->lastInsertId();
-    }
 
 }

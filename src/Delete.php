@@ -27,11 +27,6 @@ class Delete extends Connection
 
     // insert names
 
-    public function prepare($sql)
-    {
-       return $this->connect()->prepare($sql);
-    }
-
 
     public function save()
     {        
@@ -40,12 +35,9 @@ class Delete extends Connection
         */
          $this->Fetchwhere();
 
-        $this->stmt = $this->prepare($this->sql);
-    // Param Binder
-       $this->parambinder();
-        // Execute the final Script;
-        echo $this->sql;
-         $this->stmt->execute();
+         $params = array_combine($this->paramkey,$this->paramvalue);
+         // Start Prepare query
+         $this->stmt = $this->GenerateQuery($this->sql,$params);
          return $this;
     }
 
