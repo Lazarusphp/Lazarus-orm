@@ -8,16 +8,22 @@ trait Joins
 
     protected $join;
     protected $joinmerge = [];
+    use Params;
 
 
     public function join($value,$alias,Closure $closure=null)
     {
+        $param1 = uniqid("value_");
+        $param2 = uniqid("Alias_");
         $this->join = " JOIN $value AS $alias ";
         if(!is_null($closure))
         {
         $closure();
         }
+        // $this->withparams(":$param1",$value);
+        // $this->withparams(":$param2",$alias);
         $this->joinmerge[] =  $this->join;
+      
         return $this;
     }
 
@@ -34,6 +40,7 @@ trait Joins
 
     public function RightJoins($value,$alias=null,Closure $closure=null)
     {
+
             $this->join = " RIGHT JOIN $value AS $alias ";
             if(!is_null($closure))
             {
