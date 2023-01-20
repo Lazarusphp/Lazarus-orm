@@ -1,18 +1,20 @@
 {
     "name": "snorkelweb/querybuilder",
-    "description": "Query Builder for Snorkelwebframework",
+    "description": "A lightweight wip Querybuilder for Snorkelweb framework",
     "type": "library",
+    "require": {
+        "snorkelweb/dbmanager": "1.0"
+    },
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "SnorkelWeb\\QueryBuilder\\": "src/"
+            "Snorkelweb\\Querybuilder\\": "src/"
         }
     },
     "authors": [
         {
-            "name": "Martin Bamber"
+            "name": "martin bamber"
         }
     ],
-    "minimum-stability": "dev",
-    "require": {}
+    "minimum-stability": "dev"
 }

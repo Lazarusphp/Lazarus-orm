@@ -1,0 +1,58 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "9b6be136e5ba39dca1609c2a89d268d8",
+    "packages": [
+        {
+            "name": "snorkelweb/dbmanager",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SnorkelWeb/DBManager.git",
+                "reference": "e1ecb285af8359032ee88e7abe521db44ba20157"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SnorkelWeb/DBManager/zipball/e1ecb285af8359032ee88e7abe521db44ba20157",
+                "reference": "e1ecb285af8359032ee88e7abe521db44ba20157",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "SnorkelWeb\\DBManager\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Martin Bamber"
+                }
+            ],
+            "description": "Database connection mnager for Snorkel Web framework",
+            "support": {
+                "issues": "https://github.com/SnorkelWeb/DBManager/issues",
+                "source": "https://github.com/SnorkelWeb/DBManager/tree/beta"
+            },
+            "time": "2023-01-20T12:40:44+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "snorkelweb/dbmanager": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
+}
