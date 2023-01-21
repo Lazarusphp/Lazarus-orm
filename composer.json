@@ -11,10 +11,6 @@
             "SnorkelWeb\\QueryBuilder\\": "src/"
         }
     },
-    "autoload-dev": {
-        "psr-4": {
-            "SnorkelWeb\\QueryBuilder\\Tests\\": "tests/"
-        }
     },
     "authors": [
         {
